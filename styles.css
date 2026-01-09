@@ -101,6 +101,15 @@ body::before {
   flex-wrap: wrap;
 }
 
+.nav-overlay,
+.nav-sheet {
+  display: none;
+}
+
+.nav-sheet-links {
+  display: none;
+}
+
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
