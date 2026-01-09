@@ -139,6 +139,30 @@ const sections = [
         videoUrl: "#"
       }
     ]
+  },
+  {
+    id: "calculus",
+    title: "Calculus",
+    summary: "Limits, derivatives, and integrals for quick practice.",
+    problems: [
+      {
+        statement: "Placeholder calculus problem. Add your own calculus prompts here.",
+        tags: ["calculus"],
+        videoUrl: "#"
+      }
+    ]
+  },
+  {
+    id: "geometry",
+    title: "Geometry",
+    summary: "Euclidean and analytic geometry problems.",
+    problems: [
+      {
+        statement: "Placeholder geometry problem. Add your own geometry prompts here.",
+        tags: ["geometry"],
+        videoUrl: "#"
+      }
+    ]
   }
 ];
 
@@ -146,8 +170,17 @@ const catalog = document.getElementById("catalog");
 const chipsContainer = document.getElementById("filter-chips");
 const filterBar = document.querySelector(".filter-bar");
 const filterToggle = document.getElementById("filter-toggle");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+const navOverlay = document.querySelector(".nav-overlay");
+const navClose = document.querySelector(".nav-close");
 const selectedTags = new Set();
 let tagsVisible = true;
+const mode = (document.body.dataset.mode || "sections").trim();
+const allowedSections = (document.body.dataset.allowed || "all")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 const videoIcon = `
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
@@ -242,12 +275,17 @@ function createSection(section, filteredProblems, nextNumber) {
   return wrapper;
 }
 
+function visibleSections() {
+  if (allowedSections.includes("all")) return sections;
+  return sections.filter((section) => allowedSections.includes(section.id));
+}
+
 function renderCatalog() {
   catalog.innerHTML = "";
   let globalIndex = 1;
   const nextNumber = () => globalIndex++;
 
-  sections.forEach((section) => {
+  visibleSections().forEach((section) => {
     const filtered = section.problems.filter((problem) => matchesTags(problem.tags));
     catalog.appendChild(createSection(section, filtered, nextNumber));
   });
@@ -259,7 +297,7 @@ function renderCatalog() {
 
 function collectTags() {
   const tags = new Set();
-  sections.forEach((section) => {
+  visibleSections().forEach((section) => {
     section.problems.forEach((problem) => {
       (problem.tags || []).forEach((tag) => tags.add(tag));
     });
@@ -299,10 +337,78 @@ function setTagVisibility(show) {
   }
 }
 
+function renderSummary() {
+  if (!catalog) return;
+  const map = {
+    interview: { href: "interview.html" },
+    riddles: { href: "riddles.html" },
+    contest: { href: "contest.html" }
+  };
+  const list = document.createElement("div");
+  list.className = "topic-list";
+
+  visibleSections().forEach((section) => {
+    const card = document.createElement("article");
+    card.className = "topic-card";
+
+    const info = document.createElement("div");
+    info.className = "topic-info";
+
+    const title = document.createElement("h3");
+    title.textContent = section.title;
+    info.appendChild(title);
+
+    const summary = document.createElement("p");
+    summary.textContent = section.summary;
+    info.appendChild(summary);
+
+    const meta = document.createElement("div");
+    meta.className = "topic-meta";
+    const count = document.createElement("span");
+    count.className = "topic-count";
+    count.textContent = `${section.problems.length} problems`;
+    meta.appendChild(count);
+
+    const link = document.createElement("a");
+    link.className = "pill outline small";
+    link.href = map[section.id]?.href || "#";
+    link.textContent = "Open";
+    meta.appendChild(link);
+
+    card.append(info, meta);
+    list.appendChild(card);
+  });
+
+  catalog.innerHTML = "";
+  catalog.appendChild(list);
+}
+
 filterToggle?.addEventListener("click", () => {
   setTagVisibility(!tagsVisible);
 });
 
-renderChips();
-renderCatalog();
-setTagVisibility(true);
+navToggle?.addEventListener("click", () => {
+  document.body.classList.toggle("nav-open");
+});
+
+navLinks?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.body.classList.remove("nav-open");
+  });
+});
+
+navOverlay?.addEventListener("click", () => {
+  document.body.classList.remove("nav-open");
+});
+
+navClose?.addEventListener("click", () => {
+  document.body.classList.remove("nav-open");
+});
+
+if (mode === "summary") {
+  renderSummary();
+} else {
+  renderChips();
+  renderCatalog();
+  setTagVisibility(true);
+}
