@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathentic | Video-backed Math Problems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="backdrop">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Mathentic</p>
+    <h1>Curated math problems with video solutions</h1>
+    <p class="lede">
+      Drop your favorite problems and pair them with YouTube walkthroughs. Split them into interview drills,
+      riddles that spark curiosity, or serious contest prep.
+    </p>
+    <div class="hero-actions">
+      <a class="pill" href="#interview">Interview problems</a>
+      <a class="pill secondary" href="#riddles">Riddles</a>
+      <a class="pill outline" href="#contest">Contest math</a>
+    </div>
+  </header>
+
+  <section class="filter-bar">
+    <div class="filter-header">
+      <h2>Filter by tags</h2>
+      <p class="filter-help">Tap a tag to narrow the list. Tap again to clear it.</p>
+      <button class="filter-toggle" id="filter-toggle" type="button">Hide tags</button>
+    </div>
+    <div class="filter-chips" id="filter-chips"></div>
+  </section>
+
+  <main id="catalog"></main>
+
+  <section class="how-to">
+    <h2>How to extend this list</h2>
+    <ol>
+      <li>Edit the data inside <code>main.js</code>; every entry has a title, focus, difficulty, and YouTube link.</li>
+      <li>Add or remove sections by updating the <code>sections</code> array.</li>
+      <li>Reload the page—no build tools needed.</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <p>Handy reference for math enthusiasts, interview coaches, and contest crews.</p>
+  </footer>
+
+  <noscript>This page needs JavaScript enabled to render the problem list.</noscript>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
