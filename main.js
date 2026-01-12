@@ -66,42 +66,42 @@ const sections = [
       {
         statement: "For all $n \\in \\mathbb{N}$, $f(n) = g(n)$ where $f(n) = 1 - \\tfrac12 + \\tfrac13 - \\cdots + \\tfrac{1}{2n+1} - \\tfrac{1}{2n}$ and $g(n) = \\tfrac{1}{n+1} + \\cdots + \\tfrac{1}{2n}$.",
         tags: ["series", "harmonic"],
-        videoUrl: "#"
+        videoUrl: "https://youtu.be/f1qNVrSRaDI"
       },
       {
         statement: "Find a closed form for $a_n = \\sqrt{\\,2 + \\sqrt{\\,2 + \\cdots + \\sqrt{\\,2 + \\sqrt{2}}\\,}}$ with $n$ nested radicals.",
-        tags: ["algebra", "radicals"],
-        videoUrl: "#"
+        tags: ["radicals"],
+        videoUrl: "https://youtu.be/s0dGqaoKXXY"
       },
       {
         statement: "If $\\alpha + \\tfrac{1}{\\alpha} \\in \\mathbb{Z}$, prove $\\alpha^n + \\tfrac{1}{\\alpha^n} \\in \\mathbb{Z}$ for all $n \\in \\mathbb{N}$.",
-        tags: ["number theory", "induction"],
-        videoUrl: "#"
+        tags: ["induction"],
+        videoUrl: "https://youtu.be/0SbsZbYjOgs"
       },
       {
         statement: "Prove $1 < \\tfrac{1}{n+1} + \\tfrac{1}{n+2} + \\cdots + \\tfrac{1}{3n+1} < 2$.",
         tags: ["inequality", "series"],
-        videoUrl: "#"
+        videoUrl: "https://youtu.be/rfLyi8VTIP4"
       },
       {
         statement: "Show $(n+1)(n+2)\\cdots(2n) = 2^n \\cdot 1 \\cdot 3 \\cdot 5 \\cdots (2n-1)$ for all $n \\in \\mathbb{N}$.",
-        tags: ["combinatorics", "products"],
-        videoUrl: "#"
+        tags: ["induction"],
+        videoUrl: "https://youtu.be/pLPjwhGO4RM"
       },
       {
         statement: "If $z + \\tfrac{1}{z} = 2\\cos \\alpha$, then $z^n + \\tfrac{1}{z^n} = 2\\cos(n\\alpha)$ for all $n \\in \\mathbb{N}$.",
-        tags: ["complex numbers", "trig"],
-        videoUrl: "#"
+        tags: ["induction", "trig"],
+        videoUrl: "https://youtu.be/mgzE199gJh8"
       },
       {
         statement: "Given $2n+1$ points on the unit circle on the same side of some diameter, prove $\\lvert\\overrightarrow{OP_1}+\\cdots+\\overrightarrow{OP_{2n+1}}\\rvert \\ge 1$.",
-        tags: ["geometry", "vectors"],
-        videoUrl: "#"
+        tags: ["induction", "vectors"],
+        videoUrl: "https://youtu.be/KrEmWEuqzK8"
       },
       {
         statement: "All numbers of the form 1007, 10017, 10117, … are divisible by 53.",
         tags: ["number theory", "divisibility"],
-        videoUrl: "#"
+        videoUrl: "https://youtu.be/vXiofCpPTzc"
       },
       {
         statement: "All numbers of the form 12008, 120308, 1203308, … are divisible by 19.",
@@ -109,9 +109,9 @@ const sections = [
         videoUrl: "#"
       },
       {
-        statement: "Given 2n points in space and n^2 + 1 drawn segments between them, show there exists a triangle formed by drawn segments.",
+        statement: "Given $2n$ points in space and $n^2 + 1$ drawn segments between them, show there exists a triangle formed by drawn segments.",
         tags: ["graph theory", "pigeonhole"],
-        videoUrl: "#"
+        videoUrl: "https://youtu.be/alK1sML8XJ8"
       },
       {
         statement: "n identical cars on a circular track share just enough gas for one lap total. Show some car can complete a lap by collecting gas from others en route.",
@@ -131,12 +131,27 @@ const sections = [
       {
         statement: "For any natural $N$, prove $\\sqrt{\\,2 \\sqrt{\\,3 \\sqrt{\\,4 \\cdots \\sqrt{(N-1)\\sqrt{N}}\\,}}} < 3$.",
         tags: ["inequality", "radicals"],
-        videoUrl: "#"
+        videoUrl: "https://youtu.be/8SMtp9vv8sQ"
       },
       {
         statement: "If $a, b, q = \\tfrac{a^2 + b^2}{ab + 1}$ are integers $\\ge 0$, then $q = \\gcd(ab)^2$ (IMO 1988). Prove by induction on $ab$.",
         tags: ["number theory", "IMO"],
         videoUrl: "#"
+      },
+      {
+        statement: "In each cell of the 5x5 board there is a beetle. At some point, all the beetles crawl onto adjacent (horizontal or vertical) cells. Will this necessarily leave an empty cell?",
+        tags: ["logic", "coloring"],
+        videoUrl: "https://youtu.be/O3P7YViJt_Q"
+      },
+      {
+        statement: "Tiling 10x10 board by tetrominoes",
+        tags: ["logic", "coloring"],
+        videoUrl: "https://youtu.be/O3P7YViJt_Q"
+      },
+      {
+        statement: "We build an exponential tower $ \\sqrt{2}^{\\sqrt{2}^{\\sqrt{2}^{\\,\\cdot^{\\,\\cdot^{\\,\\cdot}}}}} $ by defining $a_0 = 1, a_{n+1} = (\\sqrt{2})^{\\,a_n},  n \\in \\mathbb{N}_0.$ Show that the sequence $(a_n)$ is monotonically increasing and bounded above by $2$.",
+        tags: ["series"],
+        videoUrl: "https://youtu.be/t7SO6YiG5HM"
       }
     ]
   },
